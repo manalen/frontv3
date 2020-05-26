@@ -22,14 +22,14 @@ class Medecin extends Component{
     constructor(props){
         super(props)
         this.state={
-            idPatient: '',
+            num: '',
             cin:''
             
 
         }
         this.afficherpatient = this.afficherpatient.bind(this)
         this.handleChange = this.handleChange.bind(this)
-        this.afficherpatient = this.afficherpatientbycin.bind(this)
+        this.afficherpatientbycin = this.afficherpatientbycin.bind(this)
         
     }
     
