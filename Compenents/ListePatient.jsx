@@ -30,7 +30,6 @@ class ListePatient extends Component {
             )
     }
     
-
     ajouterconsultation(){
         this.props.history.push(`/ajouter`)
     }
