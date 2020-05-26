@@ -14,10 +14,12 @@ class AfficherPatient1 extends Component {
             Prescriptions: [] ,
             message: null,
             id: this.props.match.params.id
+            
         }
     }
 
     componentDidMount() {
+
         PatientService.ola(this.state.id)
         .then(
             response => {
@@ -42,7 +44,7 @@ class AfficherPatient1 extends Component {
     render() {
         return ( 
         <div>
-            <div className="onglets" style={{borderRadius: "10px",width: "700px",height:"480px",position: "absolute", left:"540px",top: "110px",fontSize:"14px", marginRight: "310px",borderStyle: "ridge",borderColor: "#D7D7D7", boxShadow:"10px 10px 5px grey"}}>
+            <div className="onglets" style={{borderRadius: "10px",width: "700px",height:"480px",position: "absolute", left:"300px",top: "110px",fontSize:"14px", marginRight: "310px",borderStyle: "ridge",borderColor: "#D7D7D7", boxShadow:"10px 10px 5px grey"}}>
                 <Tabs defaultActiveKey="infosperso" id="uncontrolled-tab-example">
                     <Tab eventKey="infosperso" title="Informations personnelles">
                         <div style={{borderRadius: "10px",width: "550px",position: "absolute", left:"73px",top: "80px",fontSize:"14px", marginRight: "310px",borderStyle: "ridge",borderColor: "#D7D7D7", boxShadow:"10px 10px 5px grey"}}>
