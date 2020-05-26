@@ -5,14 +5,13 @@ import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
 import Medecin from './Medecin';
 import ListePatient from './ListePatient'
-class AfficherPatient1 extends Component {
+class AfficherByCin extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            patient: {} ,
+            patient: [],
             message: null,
-            cin:this.props.match.params.cin,
-            id: this.props.match.params.id
+            cin: this.props.match.params.cin
         }
     }
     componentDidMount() {
@@ -39,9 +38,9 @@ class AfficherPatient1 extends Component {
         )*/
     }
     render() {
-        return ( 
+        return (
         <div>
-            <div className="onglets" style={{borderRadius: "10px",width: "700px",height:"480px",position: "absolute", left:"540px",top: "110px",fontSize:"14px", marginRight: "310px",borderStyle: "ridge",borderColor: "#D7D7D7", boxShadow:"10px 10px 5px grey"}}>
+            <div className="onglets" style={{borderRadius: "10px",width: "700px",height:"480px",position: "absolute", left:"300px",top: "110px",fontSize:"14px", marginRight: "310px",borderStyle: "ridge",borderColor: "#D7D7D7", boxShadow:"10px 10px 5px grey"}}>
                 <Tabs defaultActiveKey="infosperso" id="uncontrolled-tab-example">
                     <Tab eventKey="infosperso" title="Informations personnelles">
                         <div style={{borderRadius: "10px",width: "550px",position: "absolute", left:"73px",top: "80px",fontSize:"14px", marginRight: "310px",borderStyle: "ridge",borderColor: "#D7D7D7", boxShadow:"10px 10px 5px grey"}}>
@@ -58,14 +57,17 @@ class AfficherPatient1 extends Component {
                                 </thead>
                                 <tbody>
                                 {
-                                    <tr key={this.state.patient._id}>
-                                        <td>{this.state.patient.nom}</td>
-                                        <td>{this.state.patient.prenom}</td>
-                                        <td>{this.state.patient.numserie}</td>
-                                        <td>{this.state.patient.cin}</td>
-                                        <td>{this.state.patient.age}</td>
-                                        <td>{this.state.patient.adresse}</td>
-                                    </tr>
+                                    this.state.patient.map(
+                                        patients =>
+                                        <tr key={patients.idpatient}>
+                                            <td>{patients.nom}</td>
+                                            <td>{patients.prenom}</td>
+                                            <td>{patients.numserie}</td>
+                                            <td>{patients.cin}</td>
+                                            <td>{patients.age}</td>
+                                            <td>{patients.adresse}</td>
+                                        </tr>
+                                    )
                                     }
                                 </tbody>
                                     </table>
@@ -78,4 +80,4 @@ class AfficherPatient1 extends Component {
         )
         }    
     }
-export default AfficherPatient1
+export default AfficherByCin
